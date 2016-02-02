@@ -35,7 +35,7 @@
                       <a class="collapsible-header">Clientes<i class="mdi-social-people"></i></a>
                       <div class="collapsible-body">
                         <ul>
-                          <li><a href="#!">First</a></li>
+                          <li><a href="{{route('cliente.create')}}">Crear</a></li>
                           <li><a href="#!">Second</a></li>
                           <li><a href="#!">Third</a></li>
                           <li><a href="#!">Fourth</a></li>

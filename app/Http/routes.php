@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('api','EventoController@api');
         Route::resource('user','UserController');
         Route::resource('evento','EventoController');
+        Route::resource('cliente','ClienteController');
     });
 });
 
