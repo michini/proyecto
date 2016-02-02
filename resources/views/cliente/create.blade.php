@@ -5,9 +5,10 @@
         <div class="col l11 offset-l1 m12 s12">
             <div class="row">
                 <div class="col l9 m9 s12">
-                    <div class="card-panel">
+                    <div class="card-panel hoverable">
                         <div class="row">
-                            {!! Form::open(['route'=>'user.store','method'=>'POST','class'=>'col s12','files'=>true]) !!}
+                            @include('layouts.errors')
+                            {!! Form::open(['route'=>'cliente.store','method'=>'POST','class'=>'col s12']) !!}
                             <div class="row">
                                 <div class="input-field col s6">
                                     <i class="fa fa-user prefix"></i>
@@ -23,20 +24,20 @@
                             <div class="row">
                                 <div class="input-field col s6">
                                     <i class="fa fa-phone prefix"></i>
-                                    <input id="cel" type="tel" class="validate" name="cel" maxlength="9" required>
-                                    <label for="cel">Celular del cliente</label>
+                                    <input id="celular" type="tel" class="validate" name="celular" maxlength="9" required>
+                                    <label for="celular">Celular del cliente</label>
                                 </div>
                                 <div class="input-field col s6">
                                     <i class="fa fa-location-arrow prefix"></i>
-                                    <input id="dir" type="text" class="validate" name="dir" required>
-                                    <label for="dir">Direccion del cliente</label>
+                                    <input id="direccion" type="text" class="validate" name="direccion" required>
+                                    <label for="direccion">Direccion del cliente</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
                                     <i class="fa fa-users prefix"></i>
-                                    <input id="fam" type="text" class="validate" name="fam" required>
-                                    <label for="fam">Familia del cliente</label>
+                                    <input id="familia" type="text" class="validate" name="familia" required>
+                                    <label for="familia">Familia del cliente</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -49,9 +50,11 @@
                     </div>
                 </div>
                 <div class="col l3 m3 s12">
-                    <div class="card-panel">
-                        <span class="card-title">Lista de Usuarios</span>
-                            <li><a href="#">fsdf</a></li>
+                    <div class="card-panel hoverable">
+                        <span class="card-title">Lista de Clientes</span>
+                        @foreach($clientes as $cliente)
+                            <li><a href="#">{{$cliente}}</a></li>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Laracasts\Flash\Flash;
 
 class ClienteController extends Controller
 {
@@ -26,7 +28,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('cliente.create');
+        $clientes = Cliente::all()->lists('nombre');
+        return view('cliente.create')->with('clientes',$clientes);
     }
 
     /**
@@ -35,9 +38,14 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\ClienteRequest $request)
     {
-        //
+
+        $cliente = new Cliente();
+        $cliente->fill($request->all());
+        $cliente->save();
+        Flash::success('Usuario Creado Correctamente');
+        return redirect()->back();
     }
 
     /**
