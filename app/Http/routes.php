@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::resource('user','UserController');
         Route::resource('evento','EventoController');
         Route::resource('cliente','ClienteController');
+        Route::resource('contrato','ContratoController');
     });
 });
 

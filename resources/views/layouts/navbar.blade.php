@@ -17,6 +17,9 @@
                 <li><a href="{{url('/login')}}"><i class="fa fa-sign-in"></i> Login</a></li>
             @else
             <li>
+                <a href="{{route('evento.create')}}" class="btn waves-effect">Crear Evento</a>
+            </li>
+            <li>
                 <a class="dropdown-button" href="#!" data-activates="dropdown1">{{\Illuminate\Support\Str::title(Auth::user()->username)}}<i class="material-icons right">arrow_drop_down</i></a>
             </li>
                 <ul id="dropdown1" class="dropdown-content">

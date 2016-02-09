@@ -10,6 +10,29 @@
     <div class="row">
         <div class="col l11 offset-l1">
             <div class="row">
+                <div class="col l4 m4 s4">
+                    <div class="card-panel center red-text text-lighten-1 omar">
+                        <i class="fa fa-user large"> {{$clientes}}</i>
+                        <hr>
+                        <p><h3>Clientes</h3></p>
+                    </div>
+                </div>
+                <div class="col l4 m4 s4">
+                    <div class="card-panel center red-text text-lighten-1 omar">
+                        <i class="fa fa-video-camera large"> {{$eventos}}</i>
+                        <hr>
+                        <h3>Eventos</h3>
+                    </div>
+                </div>
+                <div class="col l4 m4 s4">
+                    <div class="card-panel center red-text text-lighten-1 omar">
+                        <i class="fa fa-calendar large"> {{$contratos}}</i>
+                        <hr>
+                        <p><h3>Contratos</h3></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col l8 m12 s12">
                     <div class="card-panel hoverable">
                         <div id="calendar"></div>
@@ -26,6 +49,7 @@
                                 <a href="{{route('evento.show',$evento->id)}}" class="right yellow-text text-accent-4">Mas info</a>
                             </div>
                         @endforeach
+                            <a href="{{route('evento.index')}}" class="right btn">Ver Todos</a>
                     </div>
                 </div>
             </div>
@@ -52,6 +76,7 @@
     <script src="{{asset('plugins/fullcalendar2/lang-all.js')}}"></script>
     <script>
         $(document).ready(function() {
+
             var currentLangCode = 'es';
 
             $('#calendar').fullCalendar({
@@ -82,13 +107,18 @@
                     center: 'title',
                     right: 'month'
                 },
-                defaultDate: '2016-01-12',
+
                 lang:currentLangCode,
                 //editable: true,
                 eventLimit: true, // allow "more" link when too many events
                 events:{
                     url:'http://localhost/proyectos/tesis/public/api'
                 }
+            });
+
+            $('.omar').on({
+                'mouseover':function(){$(this).addClass('teal lighten-5 hoverable');},
+                'mouseout':function(){$(this).removeClass('teal lighten-5 hoverable');}
             });
 
         });

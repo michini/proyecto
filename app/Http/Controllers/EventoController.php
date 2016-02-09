@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Laracasts\Flash\Flash;
 
 class EventoController extends Controller
 {
@@ -29,7 +31,14 @@ class EventoController extends Controller
      */
     public function create()
     {
-        //
+        $paquetes = DB::table('paquetes')
+            ->select('id','tipo')
+            ->get();
+        $compromisos = DB::table('compromisos')
+            ->select('id','nombre')
+            ->get();
+
+        return view('evento.create',compact('paquetes','compromisos'));
     }
 
     /**
@@ -40,7 +49,18 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $evento = new Evento();
+        $evento->lugar = Input::get('lugar');
+        $evento->fecha = Input::get('fecha');
+        $evento->descripcion = Input::get('descripcion');
+        $evento->estado = Input::get('estado');
+        $evento->paquete_id = Input::get('paquete');
+        $evento->compromiso_id = Input::get('compromiso');
+        $evento->save();
+        Flash::success('Evento creado correctamente');
+
+        return view('contrato.create',compact('evento'));
     }
 
     /**

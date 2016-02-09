@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class Contrato extends Model
 {
 
     public $timestamps = false;
-
+    protected $table = 'contratos';
     protected $fillable = [
         'fecha',
         'evento_id',
