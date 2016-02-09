@@ -32,6 +32,7 @@ class HomeController extends Controller
         $event = DB::table('eventos')
             ->select(DB::raw('id, fecha, lugar'))
             ->where('fecha','>',Carbon::now())
+            ->orderBy('fecha','ASC')
             ->limit(4)
             ->get();
         $clientes = Cliente::select('id')->count();

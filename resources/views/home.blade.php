@@ -49,7 +49,7 @@
                                 <a href="{{route('evento.show',$evento->id)}}" class="right yellow-text text-accent-4">Mas info</a>
                             </div>
                         @endforeach
-                            <a href="{{route('evento.index')}}" class="right btn">Ver Todos</a>
+                            <a href="{{route('evento.index')}}" class="center btn red">Ver Todos</a>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,8 @@ class EventoController extends Controller
      */
     public function index()
     {
-
+        $eventos = Evento::orderBy('fecha','ASC')->get();
+        return view('evento.index',compact('eventos'));
     }
 
     /**
