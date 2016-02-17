@@ -26,9 +26,9 @@
                 </div>
                 <div class="col l4 m4 s4">
                     <div class="card-panel center red-text text-lighten-1 omar">
-                        <i class="fa fa-calendar large"> {{$contratos}}</i>
+                        <i class="fa fa-users large"> {{$filmadores}}</i>
                         <hr>
-                        <p><h3>Contratos</h3></p>
+                        <p><h3>Filmadores</h3></p>
                     </div>
                 </div>
             </div>

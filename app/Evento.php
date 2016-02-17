@@ -45,4 +45,11 @@ class Evento extends Model
         return $this->belongsToMany('App\Filmador');
     }
 
+    public function scopeEvento($query,$data){
+        if($data != ""){
+            $query->where('lugar',$data);
+        }
+
+    }
+
 }

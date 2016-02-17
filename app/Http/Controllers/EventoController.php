@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Evento;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -19,10 +19,20 @@ class EventoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $eventos = Evento::orderBy('fecha','ASC')->get();
-        return view('evento.index',compact('eventos'));
+
+        $eventos = Evento::evento($request->get('evento'))->orderBy('fecha','ASC')->paginate(10);
+        $array = array();
+        $lugar= DB::table('eventos')
+            ->select('lugar')
+            ->get();
+        foreach($lugar as $place){
+            $array[]=$place->lugar;
+        }
+        $lugares=json_encode($array);
+
+        return view('evento.index',compact('eventos','lugares'));
     }
 
     /**
@@ -113,7 +123,10 @@ class EventoController extends Controller
      */
     public function destroy($id)
     {
-
+        $evento = Evento::findOrFail($id);
+        $evento->delete();
+        Flash::success('evento eliminado correctamente');
+        return redirect()->back();
     }
 
     public function api(){

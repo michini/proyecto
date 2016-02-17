@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cliente;
 use App\Evento;
+use App\Filmador;
 use App\Http\Requests;
 use App\Contrato;
 use Illuminate\Support\Facades\DB;
@@ -37,8 +38,8 @@ class HomeController extends Controller
             ->get();
         $clientes = Cliente::select('id')->count();
         $eventos = Evento::select('id')->count();
-        $contratos = Contrato::select('id')->count();
+        $filmadores = Filmador::select('id')->count();
 
-        return view('home',compact('event','clientes','eventos','contratos'));
+        return view('home',compact('event','clientes','eventos','filmadores'));
     }
 }

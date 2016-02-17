@@ -26,7 +26,8 @@
     </div>
     <!--div container final -->
 
-      <script type="text/javascript" src="{{asset('plugins/fullcalendar2/lib/jquery.min.js')}}"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
       <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.0.9/scrollreveal.min.js"></script>
       <script src="{{asset('js/materialize.js')}}"></script>
       @yield('scripts')
